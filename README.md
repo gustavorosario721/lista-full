@@ -60,4 +60,3 @@ O `vercel.json` inclui rewrite para suportar rotas SPA.
 Cada exercício exporta `render(root)`. O controlador importa o módulo sob demanda e pode receber uma função de limpeza para remover listeners/canais/timers quando o usuário troca de questão.
 
 Os exercícios estáticos são exemplos didáticos com `addEventListener()`. O câmbio da Q19 usa uma cotação ilustrativa fixa de R$ 5,00 por dólar; o vídeo da Q11 é demonstrativo.
-# lista-full
