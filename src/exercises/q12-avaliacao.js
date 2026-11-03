@@ -1,0 +1,4 @@
+export function render(root) {
+  root.innerHTML = `<h2>Avaliação por estrelas</h2><p>Selecione uma nota de 1 a 5 estrelas.</p><div id="stars" class="stars" role="group" aria-label="Avaliação"><button type="button" data-star="1" aria-label="1 estrela">★</button><button type="button" data-star="2" aria-label="2 estrelas">★</button><button type="button" data-star="3" aria-label="3 estrelas">★</button><button type="button" data-star="4" aria-label="4 estrelas">★</button><button type="button" data-star="5" aria-label="5 estrelas">★</button></div><p id="rating-label">Nenhuma nota selecionada.</p>`
+  root.querySelector('#stars').addEventListener('click',e=>{const b=e.target.closest('[data-star]');if(!b)return;const n=Number(b.dataset.star);root.querySelectorAll('[data-star]').forEach(s=>s.classList.toggle('selected',Number(s.dataset.star)<=n));root.querySelector('#rating-label').textContent=`Você selecionou ${n} de 5 estrelas.`})
+}

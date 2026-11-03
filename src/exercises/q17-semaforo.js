@@ -1,0 +1,4 @@
+export function render(root) {
+  root.innerHTML = `<h2>Semáforo inteligente</h2><p>Inicie a sequência de cores do semáforo.</p><button id="start-traffic" class="btn">Iniciar sequência</button><div class="traffic"><span id="red" class="red"></span><span id="yellow" class="yellow"></span><span id="green" class="green"></span></div><p id="traffic-label" class="hint">Aguardando início.</p>`
+  let timer=null;root.querySelector('#start-traffic').addEventListener('click',()=>{if(timer)clearInterval(timer);const states=[['green','Siga'],['yellow','Atenção'],['red','Pare']];let i=0;const paint=()=>{['red','yellow','green'].forEach(c=>root.querySelector('#'+c).classList.toggle('on',c===states[i][0]));root.querySelector('#traffic-label').textContent=states[i][1];i=(i+1)%states.length};paint();timer=setInterval(paint,2000)});return ()=>{if(timer)clearInterval(timer)}
+}

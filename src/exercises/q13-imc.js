@@ -1,0 +1,4 @@
+export function render(root) {
+  root.innerHTML = `<h2>Calculadora de IMC</h2><div class="grid"><div class="field"><label>Peso (kg)</label><input id="weight" type="number" min="1" step="0.1"></div><div class="field"><label>Altura (m)</label><input id="height" type="number" min="0.5" max="2.5" step="0.01"></div></div><div id="imc-result" class="notice info">Informe peso e altura.</div>`
+  const calc=()=>{const w=Number(root.querySelector('#weight').value),h=Number(root.querySelector('#height').value),out=root.querySelector('#imc-result');if(w<=0||h<=0){out.textContent='Informe peso e altura válidos.';return}const imc=w/(h*h);out.className='notice info';out.textContent=`Seu IMC é ${imc.toFixed(2).replace('.',',')}.`;};root.querySelector('#weight').addEventListener('change',calc);root.querySelector('#height').addEventListener('change',calc)
+}
